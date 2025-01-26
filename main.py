@@ -21,25 +21,24 @@ def main():
 
      ]
 
-     # ✅ Loop through the test cases
      for data in user_data:
           try:
                user = User(data["name"], data["email"], data["password"], data["birthday"], data["created_at"])
-               print(f"✅ Successfully created: {user}")
+               print(f"Successfully created: {user}")
           except ce.UserNameTooShortError as e:
-               print(f"🚨 Username Error: {e}")
+               print(f"Username Error: {e}")
           except ce.UserNameNonCharError as e:
-               print(f"🚨 Username Error: {e}")
+               print(f"Username Error: {e}")
           except ce.IllegalEmailFormatError as e:
-               print(f"🚨 Email Error: {e}")
+               print(f"Email Error: {e}")
           except ce.IllegalPasswordFormatError as e:
-               print(f"🚨 Password Error: {e}")
+               print(f"Password Error: {e}")
           except ce.IllegalBirthdayError as e:
-               print(f"🚨 Birthday Error: {e}")
+               print(f"Birthday Error: {e}")
           except ce.UserTooYoungError as e:
-               print(f"🚨 Age Restriction Error: {e}")
+               print(f"Age Restriction Error: {e}")
           except Exception as e:
-               print(f"⚠️ Unexpected Error: {e}")
+               print(f"Unexpected Error: {e}")
 
 if __name__ == "__main__":
      main()
