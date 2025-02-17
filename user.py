@@ -1,17 +1,17 @@
 import re
-import CustomError as ce
+import custom_error as ce
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 class User:
     def __init__(self, name: str, email: str, password: str,
-                 birthday: datetime, created_at: datetime):
+                 birthday: datetime):
 
         self.name = name
         self.email = email
         self.password = password
         self.birthday = birthday
-        self.__created_at = created_at
+        self.__created_at: datetime = datetime.now()
 
     @property
     def name(self): # getter
@@ -82,7 +82,7 @@ class User:
         return self.__created_at
 
     def __str__(self) -> str:
-        return (f"Product name:{self.__name} email:{self.__email} password:{self.__password} "
+        return (f"name:{self.__name} email:{self.__email} password:{self.__password} "
                 f"birthdate:{self.__birthday} created_at:{self.__created_at} age:{self.age}")
 
 

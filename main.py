@@ -1,30 +1,32 @@
-from User import User
+from user import User
 from datetime import datetime
-import CustomError as ce
+import custom_error as ce
 
 def main():
      user_data = [
           {"name": "Joe", "email": "joe@example.com", "password": "Weak1!",
-           "birthday": datetime(2005, 5, 15), "created_at": datetime.today()},
+           "birthday": datetime(2005, 5, 15)},
           {"name": "1234", "email": "valid@example.com", "password": "Strong1@",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()},
+           "birthday": datetime(1995, 6, 10)},
           {"name": "ValidUser", "email": "invalidemail.com", "password": "Strong1@",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()},
+           "birthday": datetime(1995, 6, 10)},
           {"name": "ValidUser", "email": "valid@example.com", "password": "Valid1@",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()},
+           "birthday": datetime(1995, 6, 10)},
           {"name": "ValidUser", "email": "valid@example.com", "password": "weakpass",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()},
+           "birthday": datetime(1995, 6, 10)},
           {"name": "ValidUser", "email": "valid@example.com", "password": "WEAKPASS",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()},
+           "birthday": datetime(1995, 6, 10)},
           {"name": "ValidUser", "email": "valid@example.com", "password": "Weakpass",
-           "birthday": datetime(1995, 6, 10), "created_at": datetime.today()}
+           "birthday": datetime(1995, 6, 10)},
+         {"name": "ValidUser", "email": "valid@example.com", "password": "Weakpass@",
+          "birthday": datetime(1995, 6, 10)}
 
      ]
 
      # ✅ Loop through the test cases
      for data in user_data:
           try:
-               user = User(data["name"], data["email"], data["password"], data["birthday"], data["created_at"])
+               user = User(data["name"], data["email"], data["password"], data["birthday"])
                print(f"✅ Successfully created: {user}")
           except ce.UserNameTooShortError as e:
                print(f"🚨 Username Error: {e}")
